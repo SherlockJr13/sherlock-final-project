@@ -1,0 +1,18 @@
+# Load the necessary packages
+library(readxl)
+library(tseries)
+library(vars)
+
+# Define the path to your Excel file
+file_path <- "E:/GitHub/sherlock-final-project/output.xlsx"
+
+# Read the data from the Excel file
+data <- read_excel(file_path, sheet = 1)
+
+# View the first few rows of the data to understand its structure
+head(data)
+
+# Perform the Terasvirta test
+terasvirta.test(data$x1, data$y, type=c("F"), scale=TRUE)
+terasvirta.test(data$x2, data$y, type=c("F"), scale=TRUE)
+terasvirta.test(data$x3, data$y, type=c("F"), scale=TRUE)
