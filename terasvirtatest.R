@@ -4,7 +4,7 @@ library(tseries)
 library(vars)
 
 # Define the path to your Excel file
-file_path <- "E:/GitHub/sherlock-final-project/output.xlsx"
+file_path <- "E:/GitHub/sherlock-final-project/pooled_data.xlsx"
 
 # Read the data from the Excel file
 data <- read_excel(file_path, sheet = 1)
