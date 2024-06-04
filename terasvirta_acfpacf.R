@@ -2,6 +2,7 @@
 library(readxl)
 library(tseries)
 library(vars)
+library(car)
 
 # Define the path to your Excel file
 file_path <- "E:/GitHub/sherlock-final-project/pooled_data.xlsx"
@@ -73,3 +74,12 @@ determine_best_n_past <- function(aggregated_series, seasonal_period=34) {
 determine_best_n_past(data$x1)
 determine_best_n_past(data$x2)
 determine_best_n_past(data$x3)
+
+
+#Multicolinearity Check
+# Fit the regression model
+model <- lm(data$y ~ data$x1 + data$x2 + data$x3, data = data)
+
+# Calculate VIF
+vif_values <- vif(model)
+print(vif_values)
