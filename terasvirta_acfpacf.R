@@ -9,6 +9,9 @@ file_path <- "E:/GitHub/sherlock-final-project/pooled_data.xlsx"
 
 # Read the data from the Excel file
 data <- read_excel(file_path, sheet = 1)
+y_lag <- data$y[1:578]
+data <- data[35:612,]
+data$x4 <- y_lag
 
 # View the first few rows of the data to understand its structure
 head(data)
@@ -17,6 +20,7 @@ head(data)
 terasvirta.test(data$x1, data$y, type=c("F"), scale=TRUE)
 terasvirta.test(data$x2, data$y, type=c("F"), scale=TRUE)
 terasvirta.test(data$x3, data$y, type=c("F"), scale=TRUE)
+terasvirta.test(data$x4, data$y, type=c("F"), scale=TRUE)
 
 # ACF-PACF Test
 
