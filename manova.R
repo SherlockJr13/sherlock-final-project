@@ -6,6 +6,7 @@ library(dplyr)
 library(biotools)
 library(stats)
 library(MASS)
+library(readxl)
 
 
 # Read the Excel file
@@ -58,3 +59,6 @@ summary(manova_res, test = "Wilks")
 
 # Individual ANOVA tests using Wilks' lambda
 summary.aov(manova_res, test = "Wilks")
+
+cor_matrix <- cor(data_multivariate)
+print(cor_matrix)
